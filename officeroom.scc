@@ -546,8 +546,16 @@ room OfficeRoom {
                     }
                 }
                 //soundKludge([imPlayerSetVolume, lobbyBGM, 85, 0]);
-                soundKludge([imPlayerFade, lobbyBGM, 85, 139]);
-                soundKludge([imPlayerSetHook, lobbyBGM, hkJump, 4]);
+                if(getObjectState(lightSwitch) == 1)
+                {
+                    soundKludge([imPlayerFade, lobbyBGM, 39, 139]);
+                }
+                else
+                {
+                    soundKludge([imPlayerFade, lobbyBGM, 85, 139]);
+                               
+                }
+                soundKludge([imPlayerSetHook, lobbyBGM, hkJump, 4]);    
                 Actors::resumeRoaming(commanderZif);
                 return;
             }
@@ -638,7 +646,7 @@ room OfficeRoom {
                     animateActor(VAR_EGO, zob_anim_raiseArm);
                     delay(20);
                     startSound(switchSnd);
-                    soundKludge([imPlayerSetVolume, lobbyBGM, 127, 0]);
+                    soundKludge([imPlayerSetVolume, lobbyBGM, 85, 0]);
                     setRoomPalette(0);
                     animateActor(VAR_EGO, zob_anim_lowerArm);
                     delay(20);
