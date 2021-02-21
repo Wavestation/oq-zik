@@ -55,7 +55,7 @@ room OfficeRoom {
     sound openDoorSnd =  "open_door.soun";
     sound openedDoorSnd =  "opened_door.soun";
 
-    sound lobbyBGM = "midi/lobbyx.soun";
+    sound lobbyBGM = "midi/lobbyl.soun";
 
     // for the bullets behind the plant
     bit hasSeenBullets, hasTriedToMovePlant, hasTalkedAboutPlant;
@@ -90,7 +90,7 @@ room OfficeRoom {
             try {
             	soundKludge([imSetMasterVolume, 100]); // set average master volume
             	startMusic(lobbyBGM); // play bg music
-            	soundKludge([imPlayerSetLoop, lobbyBGM, -1, 5, 0, 69, 0]);
+            	//soundKludge([imPlayerSetLoop, lobbyBGM, -1, 5, 0, 69, 0]);
             
                 delay(150);
                 putActorAt(ensignZob,170,110,OfficeRoom);
@@ -308,8 +308,7 @@ room OfficeRoom {
 
         case LookAt:
             unless(getObjectState(cabinetDrawer)) {
-            	soundKludge([imSetVolchanEntry, 9, 0]);
-                egoSay("Some kind of containing vayssel for multiple instances of parchment.");
+            	egoSay("Some kind of containing vayssel for multiple instances of parchment.");
                 return;
             }
             // Fallback on pick up when the drawer is open
@@ -510,6 +509,8 @@ room OfficeRoom {
                 Actors::pauseRoaming(commanderZif);
                 cutscene(2) {
                     try {
+                        //soundKludge([imPlayerSetVolume, lobbyBGM, 100, 0]);
+                        soundKludge([imPlayerSetHook, lobbyBGM, hkJump, 3]); // Set Hook 2 (jump id 0x03 on byte 6 in MIDI sysex)
                         walkActorTo(commanderZif, 267, 116);
                         waitForActor( commanderZif );
                         actorSay(commanderZif, "I'll operate the one over here.");
@@ -530,6 +531,8 @@ room OfficeRoom {
                         actorSay(commanderZif, "Continue your investigation.");
                         waitForMessage();
                         walkActorTo(commanderZif, 200, 120);
+                        //soundKludge([imPlayerSetVolume, lobbyBGM, 85, 0]);
+                        soundKludge([imPlayerSetHook, lobbyBGM, hkJump, 4]); // Set Hook 2 (jump id 0x04 on byte 6 in MIDI sysex)
                     }
                     override {
                         if(VAR_OVERRIDE) {
