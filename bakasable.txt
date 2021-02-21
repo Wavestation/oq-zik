@@ -1,0 +1,52 @@
+
+Jump Houk
+
+
+F0 7D 30 00 00 01 00 00 00 01 00 00 00 04 00 01 09 00 F7
+      HK UN A4 A4 B8 B8 B8 B8 C8 C8 C8 C8 D8 D8 D8 D8
+
+
+Commande : 00 01
+Track : 00 00 00 01 -> 0x0001
+Beat : 00 00 00 04 -> 0x0004
+Tick : 00 01 09 00 -> 0x0190
+
+
+F0 7D 30 00
+00 01 
+00 00 00 00 
+00 00 02 01 
+00 00 00 00
+F7
+
+
+
+
+
+
+Message de part : 
+
+F0 7D 00 06 00 03 00 00 07 0F 00 00 00 00 00 00 00 02 00 00 F7
+      PD PT U4 F1 PR VA	VB VC PA PB PC F2 WA WB WC SA SB SC
+
+Part Init Message : 00
+Part : 06
+Unk : 00
+Flags : 03
+Prio : 00
+Volume : 00 07 0F -> 7F
+Pan :  00 00 00 -> 00
+Flags2 : 00
+Wheel : 00 00 00 -> 00
+Program : 02 00 00 -> 20 
+
+
+-> Mon message : 
+
+F0 7D 00  	3
+00 00 03 00 7 	
+00 07 0F  	10 
+00 00 00  	13  
+00			14
+00 00 00	17	
+00 00 00 F7 21
